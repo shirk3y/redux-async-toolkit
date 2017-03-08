@@ -9,7 +9,7 @@ const FAILURE = 'redux-async-toolkit/FAILURE';
 
 function walkObj(obj, cb, path = '') {
     Object.keys(obj).forEach(key => {
-        const keyPath = path + '.' + key;
+        const keyPath = path ? path + '.' + key : key
         const keyValue = obj[key];
         if (typeof keyValue === "object" && !Array.isArray(keyValue) && Object.keys(keyValue).length > 0) {
             walkObj(keyValue, cb, keyPath);
